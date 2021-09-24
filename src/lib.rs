@@ -13,6 +13,7 @@
 #![allow(clippy::float_cmp)]
 
 mod centrality;
+mod clustering;
 mod coloring;
 mod connectivity;
 mod dag_algo;
@@ -34,6 +35,7 @@ mod tree;
 mod union;
 
 use centrality::*;
+use clustering::*;
 use coloring::*;
 use connectivity::*;
 use dag_algo::*;
@@ -201,6 +203,7 @@ fn retworkx(py: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add("NoPathFound", py.get_type::<NoPathFound>())?;
     m.add("NullGraph", py.get_type::<NullGraph>())?;
     m.add_wrapped(wrap_pyfunction!(bfs_successors))?;
+    m.add_wrapped(wrap_pyfunction!(cluster_lambiotte))?;
     m.add_wrapped(wrap_pyfunction!(dag_longest_path))?;
     m.add_wrapped(wrap_pyfunction!(dag_longest_path_length))?;
     m.add_wrapped(wrap_pyfunction!(dag_weighted_longest_path))?;

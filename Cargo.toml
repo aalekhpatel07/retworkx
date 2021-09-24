@@ -27,6 +27,7 @@ rayon = "1.5"
 num-traits = "0.2"
 num-bigint = "0.4"
 num-complex = "0.2"
+reunion = "0.1.14"
 
 [dependencies.pyo3]
 version = "0.14.5"
